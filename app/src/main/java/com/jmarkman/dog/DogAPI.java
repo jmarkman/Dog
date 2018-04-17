@@ -20,6 +20,10 @@ public class DogAPI
 
     public DogAPI() { }
 
+    /**
+     * Builds the URL for accessing the dog.ceo API
+     * @return the API URL as a URL
+     */
     public URL getDogURL()
     {
         URL url = null;
@@ -42,6 +46,12 @@ public class DogAPI
         return url;
     }
 
+    /**
+     * Builds the URL for accessing the dog.ceo API, but for a specific breed
+     * @param breed the breed of dog to use
+     * @param random bool value - true for a single random image, false for an array of images
+     * @return the API URL as a URL
+     */
     public URL getDogURL(String breed, boolean random)
     {
         URL url = null;
@@ -77,6 +87,12 @@ public class DogAPI
         return url;
     }
 
+    /**
+     * Returns the JSON from an API URL
+     * @param url the API URL as a URL
+     * @return the JSON from the API as a string
+     * @throws IOException
+     */
     public String getJSON(URL url) throws IOException
     {
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
@@ -108,6 +124,11 @@ public class DogAPI
         }
     }
 
+    /**
+     * Grabs the image from the JSON
+     * @param json the JSON from the API as a string
+     * @return the image URL as a URI
+     */
     public Uri getImage(String json)
     {
         final String MESSAGE = "message";
